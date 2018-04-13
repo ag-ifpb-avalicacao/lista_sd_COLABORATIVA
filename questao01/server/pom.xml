@@ -15,8 +15,8 @@
             <groupId>task.monitor</groupId>
             <artifactId>shared</artifactId>
             <version>1</version>
-<!--            <scope>system</scope>
-            <systemPath>${pom.basedir}/lib/shared.jar</systemPath>-->
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/shared.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
