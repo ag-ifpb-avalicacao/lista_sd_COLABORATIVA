@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "WSUserService", targetNamespace = "http://service.user.ws/", wsdlLocation = "file:/media/juan/DATA/linux/questao03/wschat/src/main/java/user.wsdl")
+@WebServiceClient(name = "WSUserService", targetNamespace = "http://service.user.ws/", wsdlLocation = "file:/media/juan/DATA/linux/sistemas-distribuidos/lista_sd_COLABORATIVA/questao03/wschat/src/main/java/user.wsdl")
 public class WSUserService
     extends Service
 {
@@ -30,7 +30,7 @@ public class WSUserService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/media/juan/DATA/linux/questao03/wschat/src/main/java/user.wsdl");
+            url = new URL("file:/media/juan/DATA/linux/sistemas-distribuidos/lista_sd_COLABORATIVA/questao03/wschat/src/main/java/user.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

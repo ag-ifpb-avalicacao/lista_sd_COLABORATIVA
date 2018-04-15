@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "WSMessageService", targetNamespace = "http://service.message.ws/", wsdlLocation = "file:/media/juan/DATA/linux/questao03/wschat/src/main/java/message.wsdl")
+@WebServiceClient(name = "WSMessageService", targetNamespace = "http://service.message.ws/", wsdlLocation = "file:/media/juan/DATA/linux/sistemas-distribuidos/lista_sd_COLABORATIVA/questao03/wschat/src/main/java/message.wsdl")
 public class WSMessageService
     extends Service
 {
@@ -30,7 +30,7 @@ public class WSMessageService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/media/juan/DATA/linux/questao03/wschat/src/main/java/message.wsdl");
+            url = new URL("file:/media/juan/DATA/linux/sistemas-distribuidos/lista_sd_COLABORATIVA/questao03/wschat/src/main/java/message.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
