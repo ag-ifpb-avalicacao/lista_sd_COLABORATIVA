@@ -19,17 +19,23 @@ import org.json.JSONArray;
  */
 public class Main {
 
+    private static ClientConfig config;
+    private static Client client;
+    
     public static void main(String[] args) {
+        config = new ClientConfig(JacksonJsonProvider.class);
+        client = JerseyClientBuilder.createClient(config);
         insert();
         listAll();
-        listGroup("Group 1");
-        listEvent("Event 2");
+        listGroup("Group-1");
+        listEvent("Event-2");
     }
 
     private static void insert() {
-        TaskEvent event = new TaskEvent("Group 1", "Event 2", System.currentTimeMillis());
-        ClientConfig config = new ClientConfig(JacksonJsonProvider.class);
-        Client client = JerseyClientBuilder.createClient(config);
+        TaskEvent event = new TaskEvent("Group 1", "Event 2", 
+                System.currentTimeMillis());
+        // Para executar localmente
+//        WebTarget target = client.target("http://localhost:8080/server/task/insert");
         WebTarget target = client.target("http://server:8080/server/task/insert");
         Invocation.Builder builder = target.request();
         Response response = builder.post(Entity.entity(event, MediaType.APPLICATION_JSON));
@@ -37,8 +43,8 @@ public class Main {
     }
 
     private static void listAll() {
-        ClientConfig config = new ClientConfig(JacksonJsonProvider.class);
-        Client client = JerseyClientBuilder.createClient(config);
+        // Para executar localmente
+//        WebTarget target = client.target("http://localhost:8080/server/task/all");
         WebTarget target = client.target("http://server:8080/server/task/all");
         Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
         Response response = builder.get();
@@ -49,8 +55,8 @@ public class Main {
     }
     
     private static void listGroup(String group){
-        ClientConfig config = new ClientConfig(JacksonJsonProvider.class);
-        Client client = JerseyClientBuilder.createClient(config);
+        // Para executar localmente
+//        WebTarget target = client.target("http://localhost:8080/server/task/group/"+group);
         WebTarget target = client.target("http://server:8080/server/task/group/"+group);
         Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
         Response response = builder.get();
@@ -61,8 +67,8 @@ public class Main {
     }
     
     private static void listEvent(String event){
-        ClientConfig config = new ClientConfig(JacksonJsonProvider.class);
-        Client client = JerseyClientBuilder.createClient(config);
+        // Para executar localmente
+//        WebTarget target = client.target("http://localhost:8080/server/task/event/"+event);
         WebTarget target = client.target("http://server:8080/server/task/event/"+event);
         Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
         Response response = builder.get();

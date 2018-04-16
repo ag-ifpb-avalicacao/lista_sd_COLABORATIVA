@@ -40,9 +40,10 @@ public class TaskEventResource {
     @Path("/event/{value}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEvent(@PathParam(value = "value") String value) {
-        System.out.println(value);
+        String aux = value.replaceAll("-", " ");
+        System.out.println(aux);
         GenericEntity<List<TaskEvent>> list = new GenericEntity<List<TaskEvent>>(
-                dao.listEvent(value)) {
+                dao.listEvent(aux)) {
         };
         return Response.ok().entity(list).build();
     }
@@ -51,9 +52,10 @@ public class TaskEventResource {
     @Path("/group/{value}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getValue(@PathParam(value = "value") String value) {
-        System.out.println(value);
+        String aux = value.replaceAll("-", " ");
+        System.out.println(aux);
         GenericEntity<List<TaskEvent>> list = new GenericEntity<List<TaskEvent>>(
-                dao.listGroup(value)) {
+                dao.listGroup(aux)) {
         };
         return Response.ok().entity(list).build();
     }

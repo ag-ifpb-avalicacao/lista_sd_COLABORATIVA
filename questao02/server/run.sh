@@ -1,4 +1,4 @@
-#mvn clean install
+mvn clean install
 sudo docker stop server
 sudo docker rm server
 sudo docker rmi questao2/server
