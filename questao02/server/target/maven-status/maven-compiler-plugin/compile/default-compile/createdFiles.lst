@@ -1,0 +1,9 @@
+br/com/ifpb/sd/repository/TaskDaoImpl.class
+br/com/ifpb/sd/server/TaskEventResource$1.class
+br/com/ifpb/sd/server/TaskEventResource$2.class
+br/com/ifpb/sd/repository/RepositorySingleton.class
+br/com/ifpb/sd/repository/TaskDao.class
+br/com/ifpb/sd/repository/ConFactory.class
+br/com/ifpb/sd/server/TaskEventResource.class
+org/netbeans/rest/application/config/ApplicationConfig.class
+br/com/ifpb/sd/server/TaskEventResource$3.class

@@ -1,0 +1,6 @@
+/home/rodrigobento/NetBeansProjects/questao02/server/src/main/java/br/com/ifpb/sd/repository/TaskDao.java
+/home/rodrigobento/NetBeansProjects/questao02/server/src/main/java/br/com/ifpb/sd/repository/ConFactory.java
+/home/rodrigobento/NetBeansProjects/questao02/server/src/main/java/br/com/ifpb/sd/server/TaskEventResource.java
+/home/rodrigobento/NetBeansProjects/questao02/server/src/main/java/org/netbeans/rest/application/config/ApplicationConfig.java
+/home/rodrigobento/NetBeansProjects/questao02/server/src/main/java/br/com/ifpb/sd/repository/TaskDaoImpl.java
+/home/rodrigobento/NetBeansProjects/questao02/server/src/main/java/br/com/ifpb/sd/repository/RepositorySingleton.java
