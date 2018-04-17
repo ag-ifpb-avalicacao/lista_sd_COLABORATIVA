@@ -1,0 +1,32 @@
+version: '2.1'
+
+services:
+
+  server:
+    image: server
+    build: ./server
+    container_name: server_app
+    ports:
+       - "8080:8080"
+    healthcheck:
+        test: "exit 0"
+    networks:
+      main:
+        aliases:
+          - server
+
+  client:
+    image: client
+    build: ./client
+    container_name: client_app
+    depends_on:
+        server:
+            condition: service_healthy
+    networks:
+      main:
+        aliases:
+          - client
+
+networks:
+  main:
+    driver: bridge
