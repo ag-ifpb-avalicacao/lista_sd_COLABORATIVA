@@ -1,0 +1,49 @@
+version: '2.1'
+
+services:
+
+  user:
+    image: user
+    build: ./user-rs
+    container_name: user_app
+    ports:
+       - "8081:8080"
+    healthcheck:
+        test: "exit 0"
+    networks:
+      main:
+        aliases:
+          - user
+
+  message:
+    image: message
+    build: ./message-rs
+    container_name: message_app
+    ports:
+       - "8083:8080"
+    healthcheck:
+        test: "exit 0"
+    networks:
+      main:
+        aliases:
+          - message
+
+  chat:
+    image: chat
+    build: ./chat-rs
+    container_name: chat_app
+    ports:
+       - "8080:8080"
+    depends_on:
+        user:
+            condition: service_healthy
+        message:
+            condition: service_healthy
+    networks:
+      main:
+        aliases:
+          - chat
+
+networks:
+  main:
+    driver: bridge
