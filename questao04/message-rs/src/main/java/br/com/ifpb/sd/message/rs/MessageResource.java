@@ -19,21 +19,29 @@ import javax.ws.rs.core.Response;
  */
 @Path("message")
 public class MessageResource {
-    
+
     private MessageDaoSingleton dao;
-    
+
     public MessageResource() {
         this.dao = MessageDaoSingleton.getInstance();
     }
-    
+
     @GET
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response allMessages() {
-        GenericEntity<List<Message>> msgs = new GenericEntity<List<Message>>(dao.listAll()){};
-        return Response.ok().entity(msgs).build();
+        System.out.println("Requisição recebida");
+        GenericEntity<List<Message>> msgs = new GenericEntity<List<Message>>(dao.listAll()) {
+        };
+        return Response.ok(200)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .header("Access-Control-Max-Age", "1209600")
+                .entity(msgs).build();
     }
-    
+
     @POST
     @Path("/insert")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -41,5 +49,5 @@ public class MessageResource {
         System.out.println("Invocação recebida, msg: " + message.toString());
         dao.insert(message);
     }
-    
+
 }

@@ -41,6 +41,7 @@ public class ChatResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers() {
         WebTarget target = client.target("http://user:8081/user-rs/user/all");
+//        WebTarget target = client.target("http://localhost:8081/user-rs/user/all");
         Invocation.Builder invocation = target.request(MediaType.APPLICATION_JSON);
         String resp = invocation.get().readEntity(String.class);
         List<User> users = Marshaller.unMarshallerUser(resp);
@@ -53,7 +54,8 @@ public class ChatResource {
     @Path("/allMessages")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMessages() {
-        WebTarget target = client.target("http://message:8082/message-rs/message/all");
+        WebTarget target = client.target("http://message:8083/message-rs/message/all");
+//        WebTarget target = client.target("http://localhost:8083/message-rs/message/all");
         Invocation.Builder invocation = target.request(MediaType.APPLICATION_JSON);
         String resp = invocation.get().readEntity(String.class);
         List<Message> msgs = Marshaller.unMarshallerMessage(resp);
@@ -70,6 +72,7 @@ public class ChatResource {
         u.setNickname("TIGI - TESTE");
         u.setPass("123");
         WebTarget target = client.target("http://user:8081/user-rs/user/login");
+//        WebTarget target = client.target("http://localhost:8081/user-rs/user/login");
         Invocation.Builder invocation = target.request();
         Response response = invocation.post(Entity.entity(u, MediaType.APPLICATION_JSON));
         System.out.println("Adicionado, codigo: " + response);
@@ -84,6 +87,7 @@ public class ChatResource {
         u.setNickname("TIGI - TESTE");
         u.setPass("321");
         WebTarget target = client.target("http://user:8081/user-rs/user/logout");
+//        WebTarget target = client.target("http://localhost:8081/user-rs/user/logout");
         Invocation.Builder invocation = target.request();
         Response response = invocation.post(Entity.entity(u, MediaType.APPLICATION_JSON));
         System.out.println("Adicionado, codigo: " + response.getStatus());
@@ -97,7 +101,8 @@ public class ChatResource {
         Message msg = new Message();
         msg.setContent("CHAT TESTE");
         msg.setUserOwner("CHAT");
-        WebTarget target = client.target("http://message:8082/message-rs/message/insert");
+        WebTarget target = client.target("http://message:8083/message-rs/message/insert");
+//        WebTarget target = client.target("http://localhost:8083/message-rs/message/insert");
         Invocation.Builder invocation = target.request();
         Response resp = invocation.post(Entity.entity(msg, MediaType.APPLICATION_JSON));
         System.out.println("Adicionado, codigo: " + resp.getStatus());

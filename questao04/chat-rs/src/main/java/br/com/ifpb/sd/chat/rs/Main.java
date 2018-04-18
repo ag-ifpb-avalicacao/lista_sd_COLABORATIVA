@@ -1,5 +1,16 @@
 package br.com.ifpb.sd.chat.rs;
 
+import br.com.ifpb.sd.shared.User;
+import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.JerseyClientBuilder;
+
 /**
  *
  * @author rodrigobento
@@ -26,7 +37,7 @@ public class Main {
 //        Message msg = new Message();
 //        msg.setContent("CHAT TESTE");
 //        msg.setUserOwner("CHAT");
-//        WebTarget target = client.target("http://localhost:8082/message-rs/message/insert");
+//        WebTarget target = client.target("http://localhost:8083/message-rs/message/insert");
 //        Invocation.Builder invocation = target.request();
 //        Response resp = invocation.post(Entity.entity(msg, MediaType.APPLICATION_JSON));
 //        System.out.println("Adicionado, codigo: " + resp.getStatus());
