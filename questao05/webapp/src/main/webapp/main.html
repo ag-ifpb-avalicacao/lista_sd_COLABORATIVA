@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+	<title>Main page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="padding-top: 10%">
+	<div style="margin: 0 auto; width: 55%;" class="count">
+		<div style="display: inline-block">
+			<img src="images/killua.gif" alt="Killua"/>
+			<p style="text-align: center">{{candidates.Killua}}</p>
+		</div>
+		<div style="display: inline-block; float: right">
+			<img src="images/gon.gif" alt="Gon"/>
+			<p style="text-align: center">{{candidates.Gon}}</p>
+		</div>
+	</div>
+	<script src="js/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+	<script type="text/javascript">
+		var vm_user = new Vue({
+			el: '.count',
+			data: {
+				candidates: {Killua:0, Gon:0}
+			},
+			methods: {
+				loadVotation: function () {
+					Vue.http.get('http://localhost:8080/voteListener').then(res => {
+						console.log(res.body.Killua);
+						Vue.set(vm_user.candidates, 'Killua', res.body.Killua);
+						Vue.set(vm_user.candidates, 'Gon', res.body.Gon);
+					}, (error) => {
+						console.log(error);
+					});
+				}
+			},
+			mounted: function () {
+				this.loadVotation();
+				setInterval(function () {
+					console.log("updating votation count");
+					this.loadVotation();
+				}.bind(this), 100);
+			}
+		});
+    </script>
+</body>
+</html>

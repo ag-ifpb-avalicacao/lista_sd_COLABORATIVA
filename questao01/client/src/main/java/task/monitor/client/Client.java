@@ -35,7 +35,7 @@ public class Client {
         System.out.println("filtering by groupName#POD");
         monitor.list("groupName#POD").stream().forEach((e) -> System.out.println(e.getCreatedIn() + "/" + e.getGroupName() + "/" + e.getEventName()));
         System.out.println("filtering by groupName#POO -- will return nothing");
-        monitor.list("groupName#POD").stream().forEach((e) -> System.out.println(e.getCreatedIn() + "/" + e.getGroupName() + "/" + e.getEventName()));
+        monitor.list("groupName#POO").stream().forEach((e) -> System.out.println(e.getCreatedIn() + "/" + e.getGroupName() + "/" + e.getEventName()));
         System.out.println("filtering by eventName#Aula sobre concorrencia");
         monitor.list("groupName#POD").stream().forEach((e) -> System.out.println(e.getCreatedIn() + "/" + e.getGroupName() + "/" + e.getEventName()));
     }

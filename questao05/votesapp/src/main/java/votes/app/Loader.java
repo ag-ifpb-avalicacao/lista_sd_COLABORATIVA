@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package votes.manager;
+package votes.app;
 
 import javax.xml.ws.Endpoint;
-import votes.manager.service.ManagerImpl;
+import votes.app.service.VoteAppImpl;
 
 /**
  *
@@ -15,6 +15,6 @@ import votes.manager.service.ManagerImpl;
 public class Loader {
 
     public static void main(String[] args) {
-        Endpoint.publish("http://localhost:9090/Manager", new ManagerImpl());
+        Endpoint.publish("http://localhost:9092/Vote", new VoteAppImpl());
     }
 }
