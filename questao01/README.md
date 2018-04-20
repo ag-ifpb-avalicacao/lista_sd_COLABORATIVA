@@ -9,5 +9,6 @@ para executar o projeto clien faça:
 
 ``
 cd client 
+sh monitor_script.sh
 mvn exec:java
 ``
