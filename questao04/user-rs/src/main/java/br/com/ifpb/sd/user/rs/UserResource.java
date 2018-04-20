@@ -50,17 +50,30 @@ public class UserResource {
     @POST
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void login(User user) {
-        System.out.println("Requisição recebida...");
+    public Response login(User user) {
         dao.login(user);
+        return Response.created(null)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .header("Access-Control-Max-Age", "1209600")
+                .entity(user).build();
+
     }
 
     @POST
     @Path("logout")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void logout(User user) {
-        System.out.println("Requisição recebida...");
+    public Response logout(User user) {
         dao.logout(user);
+        return Response.created(null)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .header("Access-Control-Max-Age", "1209600")
+                .entity(user).build();
     }
 
 }

@@ -43,10 +43,10 @@ public class UserServlet extends HttpServlet {
                 u.setNickname(nickname);
                 ClientConfig config = new ClientConfig(JacksonJsonProvider.class);
                 Client client = JerseyClientBuilder.createClient(config);
-                WebTarget target = client.target("http://localhost:8081/user-rs/user/logout");
+                WebTarget target = client.target("http://localhost:8080/chat-rs/chat/logout");
+//                WebTarget target = client.target("http://localhost:8081/user-rs/user/logout");
                 Invocation.Builder invocation = target.request();
-                Response response = invocation.post(Entity.entity(u, MediaType.APPLICATION_JSON));
-                System.out.println("Codigo: " + response.getStatus());
+                invocation.post(Entity.entity(u, MediaType.APPLICATION_JSON));
                 res.sendRedirect("index.html");
             }
         }
@@ -60,10 +60,10 @@ public class UserServlet extends HttpServlet {
         // Enviar para o serviço rs (login)
         ClientConfig config = new ClientConfig(JacksonJsonProvider.class);
         Client client = JerseyClientBuilder.createClient(config);
-        WebTarget target = client.target("http://localhost:8081/user-rs/user/login");
+        WebTarget target = client.target("http://localhost:8080/chat-rs/chat/login");
         Invocation.Builder invocation = target.request();
-        Response response = invocation.post(Entity.entity(user, MediaType.APPLICATION_JSON));
-        System.out.println("Response: " + response.getStatus());
+        invocation.post(Entity.entity(user, MediaType.APPLICATION_JSON));
+        
         RequestDispatcher red = req.getRequestDispatcher("main.jsp");
         HttpSession session = req.getSession();
         session.setAttribute("nickname", nickname);

@@ -38,7 +38,8 @@ public class MessageServlet extends HttpServlet {
         // Enviar para o serviço (insert)
         ClientConfig config = new ClientConfig(JacksonJsonProvider.class);
         Client client = JerseyClientBuilder.createClient(config);
-        WebTarget target = client.target("http://localhost:8083/message-rs/message/insert");
+//        WebTarget target = client.target("http://localhost:8083/message-rs/message/insert");
+        WebTarget target = client.target("http://localhost:8080/chat-rs/chat/insert");
         Invocation.Builder invocation = target.request();
         Response resp = invocation.post(Entity.entity(message, MediaType.APPLICATION_JSON));
         System.out.println("Codigo: " + resp.getStatus());

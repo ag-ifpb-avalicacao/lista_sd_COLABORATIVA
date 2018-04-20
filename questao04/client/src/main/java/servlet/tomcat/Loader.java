@@ -17,7 +17,7 @@ public class Loader {
 
     public static void main(String[] args) throws LifecycleException, ServletException {
         Tomcat tomcat = new Tomcat();
-        tomcat.setPort(8080);
+        tomcat.setPort(8087);
         //
         Context ctx = tomcat.addWebapp("/", new File("src/main/webapp/").getAbsolutePath());
         //

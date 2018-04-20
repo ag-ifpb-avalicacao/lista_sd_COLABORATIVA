@@ -85,7 +85,7 @@
                 <h3 style="text-align: center;">Chat Messages</h3>
                 <div class="data_ms">
                     <div class="container" v-for="message in messages.array">
-                        <span class="time-left" style="color: red">{{message.nickname}}</span><br>
+                        <span class="time-left" style="color: red">{{message.userOwner}}</span><br>
                         <p>{{message.content}}</p>
                     </div>
                 </div>  
@@ -118,13 +118,7 @@ var vm_user = new Vue({
     },
     methods: {
         loadUsers: function () {
-//            Vue.http.options.xhr = {withCredentials: true};
-//            Vue.http.headers.common['Access-Control-Allow-Credentials'] = 'true';
-//            Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:8081/user-rs/user/all';
-//            Vue.http.headers.common['Access-Control-Request-Method'] = '*';
-            Vue.http.get('http://localhost:8081/user-rs/user/all').then(res => {
-                console.log(vm_user.users);
-                console.log(res.body);
+            Vue.http.get('http://localhost:8080/chat-rs/chat/allUsers').then(res => {
                 Vue.set(vm_user.users, 'array', res.body);
             }, (error) => {
                 console.log(error);
@@ -147,12 +141,7 @@ var vm_ms = new Vue({
     },
     methods: {
         loadMessages: function () {
-//            Vue.http.headers.common['Access-Control-Allow-Origin'] = '*';
-//            Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://xxx.xxx.xxx.xxx:94';
-//            Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:8083/message-rs/message/all';
-            Vue.http.get('http://localhost:8083/message-rs/message/all').then(res => {
-                console.log(vm_ms.messages);
-                console.log(res.body);
+            Vue.http.get('http://localhost:8080/chat-rs/chat/allMessages').then(res => {
                 Vue.set(vm_ms.messages, 'array', res.body);
             }, (error) => {
                 console.log(error);
