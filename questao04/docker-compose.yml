@@ -7,7 +7,7 @@ services:
     build: ./user-rs
     container_name: user_app
     ports:
-       - "8085:8080"
+       - "9090:8080"
     networks:
       main:
         aliases:
@@ -20,7 +20,7 @@ services:
     depends_on:
        - user
     ports:
-       - "9090:8080"
+       - "10000:8080"
     networks:
       main:
         aliases:

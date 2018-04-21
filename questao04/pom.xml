@@ -9,7 +9,6 @@
     <modules>
         <module>shared</module>
         <module>client</module>
-        <module>client-rs</module>
         <module>user-rs</module>
         <module>chat-rs</module>
         <module>message-rs</module>
