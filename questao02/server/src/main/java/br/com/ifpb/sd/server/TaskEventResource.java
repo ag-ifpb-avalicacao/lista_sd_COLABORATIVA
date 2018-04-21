@@ -33,7 +33,7 @@ public class TaskEventResource {
         GenericEntity<List<TaskEvent>> list = new GenericEntity<List<TaskEvent>>(
                 dao.listAll()) {
         };
-        return Response.ok().entity(list).build();
+        return Response.ok(200).entity(list).build();
     }
     
     @GET
@@ -45,7 +45,7 @@ public class TaskEventResource {
         GenericEntity<List<TaskEvent>> list = new GenericEntity<List<TaskEvent>>(
                 dao.listEvent(aux)) {
         };
-        return Response.ok().entity(list).build();
+        return Response.ok(200).entity(list).build();
     }
     
     @GET
@@ -57,7 +57,7 @@ public class TaskEventResource {
         GenericEntity<List<TaskEvent>> list = new GenericEntity<List<TaskEvent>>(
                 dao.listGroup(aux)) {
         };
-        return Response.ok().entity(list).build();
+        return Response.ok(200).entity(list).build();
     }
 
     @POST
